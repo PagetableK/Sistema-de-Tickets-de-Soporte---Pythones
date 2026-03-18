@@ -6,10 +6,11 @@ public class Ticket {
     public String estado;
     private Tecnico tecnicoAsignado;
 
-    public Ticket(String descripcion, String prioridad, String estado){
+    public Ticket(String descripcion, String prioridad, String estado) {
         this.descripcion = descripcion;
-        this.prioridad  = prioridad;
+        this.prioridad = prioridad;
         this.estado = TicketStatus.EN_ESPERA;
         this.tecnicoAsignado = null;
+        a
     }
 }
