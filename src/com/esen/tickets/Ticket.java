@@ -1,15 +1,15 @@
 package com.esen.tickets;
 
 public class Ticket {
-    public String descripcion;
-    public String prioridad;
-    public String estado;
-    private Tecnico tecnicoAsignado;
+    private String descripcion;
+    private String prioridad;
+    private TicketStatus estado;
 
-    public Ticket(String descripcion, String prioridad, String estado){
+    public Ticket(String descripcion, String prioridad) {
         this.descripcion = descripcion;
-        this.prioridad  = prioridad;
+        this.prioridad = prioridad;
         this.estado = TicketStatus.EN_ESPERA;
-        this.tecnicoAsignado = null;
     }
+    public String getDescripcion() {
+        return descripcion;
 }
