@@ -22,4 +22,10 @@ public class Ticket {
     public void setPrioridad(String prioridad) {
         this.prioridad = prioridad;
     }
+    public TicketStatus getEstado() {
+        return estado;
+    }
+    public void setEstado(TicketStatus estado) {
+        this.estado = estado;
+    }
 }
