@@ -12,4 +12,5 @@ public class Ticket {
     }
     public String getDescripcion() {
         return descripcion;
+    }
 }
