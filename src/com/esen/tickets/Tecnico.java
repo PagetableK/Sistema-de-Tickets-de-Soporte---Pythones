@@ -8,4 +8,8 @@ public class Tecnico extends Persona {
         super(nombre,correo);
         this.especialidad = especialidad;
     }
+
+    public void Ruido(){
+        System.out.println("Ruido");
+    }
 }
