@@ -1,4 +1,4 @@
-package com.esen.tickets;
+package com.esen.servicios;
 
 public class Ticket {
     private String descripcion;
