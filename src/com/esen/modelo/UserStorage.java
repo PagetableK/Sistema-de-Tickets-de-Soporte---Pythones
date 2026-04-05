@@ -13,9 +13,7 @@ import java.util.List;
 public class UserStorage extends FileStorage {
     private final String RUTA_ARCHIVO = "usuarios.json";
 
-
-    @Override
-    public void guardarDatos(List<Usuario> listaUsuarios) {
+    public void guardarUsuarios(List<Usuario> listaUsuarios) {
         try {
             File archivo = new File(RUTA_ARCHIVO);
             // Escribe la lista en el archivo con formato bonito
@@ -26,19 +24,20 @@ public class UserStorage extends FileStorage {
         }
     }
 
+    public List<Usuario> cargarUsuarios() {
+        File archivo = new File(RUTA_ARCHIVOU);
 
-    @Override
-    public List<Usuario> cargarDatos() {
-        File archivo = new File(RUTA_ARCHIVO);
-        if (!archivo.exists())  return new ArrayList<>();
-
-        try {
-            List<Usuario> usuarios = mapper.readValue(archivo, new TypeReference<List<Usuario>>() {});
-            System.out.println("✅ Datos cargados correctamente.");
-            return usuarios;
-        } catch (IOException e) {
-            System.out.println("❌ Error cargando usuarios: " + e.getMessage());
+        if (!archivo.exists()) {
+            System.out.println("⚠️ No se encontró el archivo previo. Se iniciará con una lista vacía.");
             return new ArrayList<>();
+        }
+        try {
+            List<Usuario> jugadores = mapper.readValue(archivo, new TypeReference<List<Usuario>>() {});
+            System.out.println("✅ Datos cargados correctamente.");
+            return jugadores;
+        } catch (IOException e) {
+            System.out.println("❌ Error al leer los datos: " + e.getMessage());
+            return new ArrayList<>(); // En caso de error (ej. JSON corrupto), devolvemos lista vacía
         }
     }
 }

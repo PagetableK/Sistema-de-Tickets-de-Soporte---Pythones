@@ -1,7 +1,12 @@
 package com.esen.modelo;
 
+import com.esen.servicios.Usuario;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +20,6 @@ public abstract class FileStorage<T> {
     }
 
     public abstract  void guardarDatos(List<T> datos);
-
     public abstract List<T> cargarDatos();
  }
 

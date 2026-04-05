@@ -13,16 +13,8 @@ public class Persona {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        if (nombre != null && !nombre.isEmpty()) {
-            this.nombre = nombre;
-        }
-    }
-
-    public String getCorreo() { return correo;}
-
-    public void setCorreo(String correo){
-        this.correo = correo;
+    public String getCorreo(){
+        return correo;
     }
 
     public String obtenerDetalles(){
