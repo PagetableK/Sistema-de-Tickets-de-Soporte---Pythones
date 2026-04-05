@@ -16,7 +16,6 @@ public class MenuUsuario extends Menu {
         System.out.println("1. Crear ticket");
         System.out.println("2. Ver mis tickets");
         System.out.println("3. Cerrar sesión");
-        System.out.print("Seleccione una opción: ");
     }
 
     @Override
@@ -34,7 +33,8 @@ public class MenuUsuario extends Menu {
                 gestor_tickets.guardarDatos(tickets);
                 break;
             default:
-                System.out.println("Seleccione una opción válida (1, 2, o 3)");
+                System.out.println("Seleccione una opción válida (1, 2, o 3)\nPresione Enter para continuar");
+                s.nextLine();
                 break;
         }
     }
