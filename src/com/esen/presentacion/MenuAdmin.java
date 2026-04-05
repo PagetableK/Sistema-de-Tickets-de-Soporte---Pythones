@@ -1,5 +1,6 @@
 package com.esen.presentacion;
 import com.esen.modelo.Validaciones;
+import com.esen.servicios.Ticket;
 import com.esen.servicios.Usuario;
 
 public class MenuAdmin extends Menu {
@@ -94,6 +95,17 @@ public class MenuAdmin extends Menu {
             case "5":
                 break;
             case "6":
+                System.out.println("== LISTA DE TICKETS ==");
+                for (Ticket ticket : tickets)
+                {
+                    System.out.println("Descripción: " + ticket.getDescripcion());
+                    System.out.println("Prioridad: " + ticket.getPrioridad());
+                    System.out.println("Estado: " + ticket.getEstado());
+                    System.out.println("Técnico asignado: " + ticket.getTecnicoAsignado());
+                    System.out.println("---");
+                }
+                System.out.println("Presione Enter para continuar");
+                s.nextLine();
                 break;
             case "7":
                 continuar = false;
