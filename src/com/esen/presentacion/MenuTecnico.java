@@ -7,7 +7,6 @@ public class MenuTecnico extends Menu {
         System.out.println("1. Ver tickets asignados");
         System.out.println("2. Cerrar ticket");
         System.out.println("3. Cerrar sesión");
-        System.out.print("Seleccione una opción: ");
     }
 
     @Override
@@ -22,7 +21,8 @@ public class MenuTecnico extends Menu {
                 System.out.println();
                 break;
             default:
-                System.out.println("Seleccione una opción válida (1, 2, o 3)");
+                System.out.println("Seleccione una opción válida (1, 2, o 3)\nPresione Enter para continuar");
+                s.nextLine();
                 break;
         }
     }
