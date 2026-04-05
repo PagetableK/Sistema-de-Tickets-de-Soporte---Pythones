@@ -10,19 +10,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class FileStorage<T> {
-    protected ObjectMapper mapper;
+public class UserStorage extends FileStorage {
+    private final String RUTA_ARCHIVO = "usuarios.json";
 
-
-    public static ObjectMapper getMapper(){
-        if(mapper == null){
-            mapper = new ObjectMapper();
-            mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        }
-        return mapper;
-    }
-
-    public void guardarDatos(List listaUsuarios) {
+    public void guardarUsuarios(List<Usuario> listaUsuarios) {
         try {
             File archivo = new File(RUTA_ARCHIVO);
             // Escribe la lista en el archivo con formato bonito
@@ -34,14 +25,12 @@ public abstract class FileStorage<T> {
     }
 
     public List<Usuario> cargarUsuarios() {
-        File archivo = new File(RUTA_ARCHIVO);
-
+        File archivo = new File(RUTA_ARCHIVOU);
 
         if (!archivo.exists()) {
             System.out.println("⚠️ No se encontró el archivo previo. Se iniciará con una lista vacía.");
             return new ArrayList<>();
         }
-
         try {
             List<Usuario> jugadores = mapper.readValue(archivo, new TypeReference<List<Usuario>>() {});
             System.out.println("✅ Datos cargados correctamente.");
@@ -52,4 +41,3 @@ public abstract class FileStorage<T> {
         }
     }
 }
-

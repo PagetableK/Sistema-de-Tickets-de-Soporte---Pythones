@@ -1,9 +1,14 @@
 package com.esen;
 
+import com.esen.modelo.FileStorage;
 import com.esen.presentacion.MenuUsuario;
 import com.esen.presentacion.MenuTecnico;
 import com.esen.presentacion.MenuAdmin;
+import com.esen.servicios.Usuario;
+
+import java.io.File;
 import java.util.Scanner;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,6 +18,9 @@ public class Main {
         MenuUsuario usuario = new MenuUsuario();
         MenuTecnico tecnico = new MenuTecnico();
         MenuAdmin administrador = new MenuAdmin();
+        //FileStorage storage = new FileStorage();
+        System.out.println("••••INICIANDO SISTEMA••••");
+        //List<Usuario> Usuarios = storage.cargarUsuarios();
 
         do {
             System.out.println("\n••••Bienvenido al sistema de tickets de soporte••••");
@@ -42,5 +50,6 @@ public class Main {
                     break;
             }
         } while (continuar);
+        System.out.println("\n••••CERRANDO SISTEMA••••");
     }
 }
