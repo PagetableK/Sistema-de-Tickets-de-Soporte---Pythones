@@ -2,7 +2,6 @@ package com.esen.modelo;
 
 import com.esen.servicios.Tecnico;
 import com.fasterxml.jackson.core.type.TypeReference;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
