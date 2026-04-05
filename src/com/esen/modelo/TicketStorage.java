@@ -1,6 +1,5 @@
 package com.esen.modelo;
 
-import com.esen.servicios.Tecnico;
 import com.esen.servicios.Ticket;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,12 +10,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TicketStorage extends FileStorage {
+public class TicketStorage extends FileStorage<Ticket> {
     private final String RUTA_ARCHIVO = "tickets.json";
 
     @Override
     public void guardarDatos(List<Ticket> listaTickets) {
-
+        try {
+            File archivo = new File(RUTA_ARCHIVO);
+            // Escribe la lista en el archivo con formato bonito
+            mapper.writeValue(archivo, listaTickets);
+            System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("❌ Error al guardar los datos: " + e.getMessage());
+        }
     }
 
     @Override

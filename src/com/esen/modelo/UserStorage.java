@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserStorage extends FileStorage {
+public class UserStorage extends FileStorage<Usuario> {
     private final String RUTA_ARCHIVO = "usuarios.json";
 
 

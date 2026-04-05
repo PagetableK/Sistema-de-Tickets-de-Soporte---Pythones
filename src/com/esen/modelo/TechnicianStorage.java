@@ -8,12 +8,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TechnicianStorage extends FileStorage{
+public class TechnicianStorage extends FileStorage<Tecnico>{
     private final String RUTA_ARCHIVO = "tecnicos.json";
 
     @Override
-    public void guardarDatos(List<Tecnico> listaTenicos) {
-
+    public void guardarDatos(List<Tecnico> listaTecnicos) {
+        try {
+            File archivo = new File(RUTA_ARCHIVO);
+            // Escribe la lista en el archivo con formato bonito
+            mapper.writeValue(archivo, listaTecnicos);
+            System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("❌ Error al guardar los datos: " + e.getMessage());
+        }
     }
 
     @Override
