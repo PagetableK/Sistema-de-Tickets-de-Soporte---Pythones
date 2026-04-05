@@ -4,6 +4,8 @@ public class Persona {
     private String nombre;
     private String correo;
 
+    public Persona() {}
+
     public Persona(String nombre, String correo){
         this.nombre = nombre;
         this.correo = correo;
