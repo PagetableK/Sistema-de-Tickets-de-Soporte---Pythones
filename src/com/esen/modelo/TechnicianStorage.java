@@ -15,7 +15,6 @@ public class TechnicianStorage extends FileStorage<Tecnico>{
     public void guardarDatos(List<Tecnico> listaTecnicos) {
         try {
             File archivo = new File(RUTA_ARCHIVO);
-            // Escribe la lista en el archivo con formato bonito
             mapper.writeValue(archivo, listaTecnicos);
             System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
         } catch (IOException e) {

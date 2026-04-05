@@ -17,7 +17,7 @@ public class TicketStorage extends FileStorage<Ticket> {
     public void guardarDatos(List<Ticket> listaTickets) {
         try {
             File archivo = new File(RUTA_ARCHIVO);
-            // Escribe la lista en el archivo con formato bonito
+
             mapper.writeValue(archivo, listaTickets);
             System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
         } catch (IOException e) {

@@ -18,7 +18,6 @@ public class UserStorage extends FileStorage<Usuario> {
     public void guardarDatos(List<Usuario> listaUsuarios) {
         try {
             File archivo = new File(RUTA_ARCHIVO);
-            // Escribe la lista en el archivo con formato bonito
             mapper.writeValue(archivo, listaUsuarios);
             System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
         } catch (IOException e) {
