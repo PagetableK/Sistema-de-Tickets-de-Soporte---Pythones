@@ -5,11 +5,11 @@ public class Ticket {
     private String prioridad;
     private TicketStatus estado;
 
-    public Ticket(String descripcion, String prioridad) {
+    /*public Ticket(String descripcion, String prioridad) {
         this.descripcion = descripcion;
         this.prioridad = prioridad;
         this.estado = TicketStatus.EN_ESPERA;
-    }
+    }*/
     public String getDescripcion() {
         return descripcion;
     }
