@@ -4,6 +4,8 @@ public class Persona {
     private String nombre;
     private String correo;
 
+    public Persona() {}
+
     public Persona(String nombre, String correo){
         this.nombre = nombre;
         this.correo = correo;
@@ -13,8 +15,16 @@ public class Persona {
         return nombre;
     }
 
-    public String getCorreo(){
-        return correo;
+    public void setNombre(String nombre) {
+        if (nombre != null && !nombre.isEmpty()) {
+            this.nombre = nombre;
+        }
+    }
+
+    public String getCorreo() { return correo;}
+
+    public void setCorreo(String correo){
+        this.correo = correo;
     }
 
     public String obtenerDetalles(){
