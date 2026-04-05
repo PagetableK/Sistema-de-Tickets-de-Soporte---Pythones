@@ -10,6 +10,7 @@ public class Ticket {
         this.prioridad = prioridad;
         this.estado = TicketStatus.EN_ESPERA;
     }
+    //public Ticket(){}
     public String getDescripcion() {
         return descripcion;
     }
