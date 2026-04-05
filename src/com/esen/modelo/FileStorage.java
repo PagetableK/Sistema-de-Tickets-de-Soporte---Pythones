@@ -14,42 +14,12 @@ public abstract class FileStorage<T> {
     protected ObjectMapper mapper;
 
 
-    public static ObjectMapper getMapper(){
-        if(mapper == null){
-            mapper = new ObjectMapper();
-            mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        }
-        return mapper;
+    public FileStorage(){
+        this.mapper = new ObjectMapper();
+        this.mapper.enable(SerializationFeature.INDENT_OUTPUT);
     }
 
-    public void guardarDatos(List listaUsuarios) {
-        try {
-            File archivo = new File(RUTA_ARCHIVO);
-            // Escribe la lista en el archivo con formato bonito
-            mapper.writeValue(archivo, listaUsuarios);
-            System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
-        } catch (IOException e) {
-            System.out.println("❌ Error al guardar los datos: " + e.getMessage());
-        }
-    }
-
-    public List<Usuario> cargarUsuarios() {
-        File archivo = new File(RUTA_ARCHIVO);
-
-
-        if (!archivo.exists()) {
-            System.out.println("⚠️ No se encontró el archivo previo. Se iniciará con una lista vacía.");
-            return new ArrayList<>();
-        }
-
-        try {
-            List<Usuario> jugadores = mapper.readValue(archivo, new TypeReference<List<Usuario>>() {});
-            System.out.println("✅ Datos cargados correctamente.");
-            return jugadores;
-        } catch (IOException e) {
-            System.out.println("❌ Error al leer los datos: " + e.getMessage());
-            return new ArrayList<>(); // En caso de error (ej. JSON corrupto), devolvemos lista vacía
-        }
-    }
-}
+    public abstract  void guardarDatos(List<T> datos);
+    public abstract List<T> cargarDatos();
+ }
 

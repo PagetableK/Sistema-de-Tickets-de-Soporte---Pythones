@@ -1,5 +1,6 @@
 package com.esen.modelo;
 
+import com.esen.servicios.Tecnico;
 import com.esen.servicios.Usuario;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,4 +13,14 @@ import java.util.List;
 
 public class TechnicianStorage extends FileStorage{
     private final String RUTA_ARCHIVO = "tecnicos.json";
+
+    @Override
+    public void guardarDatos(List<Tecnico>) {
+
+    }
+
+    @Override
+    public List<Tecnico> cargarDatos() {
+        return List.of();
+    }
 }
