@@ -11,6 +11,7 @@ public class MenuTecnico extends Menu {
 
     @Override
     protected void procesarOpcion(String opcion) {
+        continuar = true;
         switch (opcion) {
             case "1":
                 break;

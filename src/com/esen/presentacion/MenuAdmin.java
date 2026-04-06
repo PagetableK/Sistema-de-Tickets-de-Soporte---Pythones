@@ -18,6 +18,7 @@ public class MenuAdmin extends Menu {
 
     @Override
     protected void procesarOpcion(String opcion) {
+        continuar = true;
         switch (opcion) {
             case "1":
                 System.out.println("== LISTA DE USUARIOS ==");
