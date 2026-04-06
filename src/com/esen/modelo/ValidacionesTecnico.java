@@ -26,6 +26,11 @@ public class ValidacionesTecnico extends Validaciones<Tecnico>{
     }
 
     @Override
+    public boolean validarEmailIngreso(String email, List<Tecnico> tecnicos){
+        return true;
+    }
+
+    @Override
     public boolean validarNombreRegistro(String nombre_tecnico, List<Tecnico> tecnicos){
         boolean nombre_repetido = false;
 
@@ -50,5 +55,10 @@ public class ValidacionesTecnico extends Validaciones<Tecnico>{
         else{
             return true;
         }
+    }
+
+    @Override
+    public boolean validarNombreIngreso(String nombre_tecnico, List<Tecnico> tecnicos){
+        return true;
     }
 }

@@ -1,4 +1,5 @@
 package com.esen.modelo;
+import com.esen.servicios.Tecnico;
 import com.esen.servicios.Usuario;
 import java.util.List;
 
@@ -27,6 +28,11 @@ public class ValidacionesUsuario extends Validaciones<Usuario>{
     }
 
     @Override
+    public boolean validarEmailIngreso(String email, List<Usuario> usuarios){
+        return true;
+    }
+
+    @Override
     public boolean validarNombreRegistro(String nombre_usuario, List<Usuario> usuarios){
         boolean nombre_repetido = false;
 
@@ -51,5 +57,10 @@ public class ValidacionesUsuario extends Validaciones<Usuario>{
         else{
             return true;
         }
+    }
+
+    @Override
+    public boolean validarNombreIngreso(String nombre_usuario, List<Usuario> usuarios){
+        return true;
     }
 }
