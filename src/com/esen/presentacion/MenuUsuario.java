@@ -19,11 +19,11 @@ public class MenuUsuario extends Menu {
             String nombre = s.nextLine().trim();
             V = validacionesUsuario.validarIngreso(correo, nombre, usuarios);
             intentos += 1;
-            if(intentos == 3) {
+            if (intentos == 3) {
                 System.out.println("Demasiados intentos fallidos.");
                 break;
+            }
         }
-
         return V;
     }
 
