@@ -1,6 +1,5 @@
 package com.esen;
 
-import com.esen.modelo.FileStorage;
 import com.esen.modelo.TechnicianStorage;
 import com.esen.modelo.TicketStorage;
 import com.esen.modelo.UserStorage;
@@ -23,7 +22,7 @@ public class Main {
         MenuUsuario usuario = new MenuUsuario();
         MenuTecnico tecnico = new MenuTecnico();
         MenuAdmin administrador = new MenuAdmin();
-        UserStorage gestor_usuarios = new UserStorage(); //examinar
+        UserStorage gestor_usuarios = new UserStorage(); //examinar si no es necesario que este presente en main
         TechnicianStorage gestor_tecnicos = new TechnicianStorage();
         TicketStorage gestor_tickets = new TicketStorage();
         System.out.println("••••INICIANDO SISTEMA••••");
@@ -47,6 +46,7 @@ public class Main {
                     usuario.mostrar();
                     break;
                 case "2":
+                    tecnico.validacion();
                     tecnico.mostrar();
                     break;
                 case "3":

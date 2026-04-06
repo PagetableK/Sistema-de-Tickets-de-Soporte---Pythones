@@ -13,7 +13,7 @@ public abstract class FileStorage<T> {
         this.mapper.enable(SerializationFeature.INDENT_OUTPUT);
     }
 
-    public abstract  void guardarDatos(List<T> datos);
+    public abstract void guardarDatos(List<T> datos);
 
     public abstract List<T> cargarDatos();
  }

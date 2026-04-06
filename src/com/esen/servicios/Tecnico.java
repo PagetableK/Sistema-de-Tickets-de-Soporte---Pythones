@@ -4,6 +4,8 @@ public class Tecnico extends Persona {
 
     public String especialidad;
 
+    public Tecnico(){}
+
     public Tecnico(String nombre, String correo, String especialidad){
         super(nombre,correo);
         this.especialidad = especialidad;
