@@ -1,8 +1,6 @@
 package com.esen.presentacion;
 
-import com.esen.modelo.TechnicianStorage;
-import com.esen.modelo.TicketStorage;
-import com.esen.modelo.UserStorage;
+import com.esen.modelo.*;
 import com.esen.servicios.Tecnico;
 import com.esen.servicios.Ticket;
 import com.esen.servicios.Usuario;
@@ -19,6 +17,8 @@ public abstract class Menu {
     List<Usuario> usuarios = gestor_usuarios.cargarDatos();
     List<Tecnico> tecnicos = gestor_tecnicos.cargarDatos();
     List<Ticket> tickets = gestor_tickets.cargarDatos();
+    ValidacionesUsuario validacionesUsuario = new ValidacionesUsuario();
+    ValidacionesTecnico validacionesTecnico = new ValidacionesTecnico();
 
     public void mostrar() {
         do {
