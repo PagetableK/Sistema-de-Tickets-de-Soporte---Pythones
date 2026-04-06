@@ -17,10 +17,10 @@ public class MenuTecnico extends Menu {
         System.out.println("Ingrese sus credenciales de técnico:");
         System.out.println("Ingrese su correo:");
         String email = s.nextLine().trim();
-        //validacionesTecnico.validarEmail(email, tecnicos);
+        //validacionesTecnico.validarEmailIngreso(email, tecnicos);
         System.out.println("Ingrese su nombre:");
         String nombre = s.nextLine().trim();
-        //validacionesTecnico.validarNombre(nombre, tecnicos);
+        //validacionesTecnico.validarNombreIngreso(nombre, tecnicos);
     }
 
 

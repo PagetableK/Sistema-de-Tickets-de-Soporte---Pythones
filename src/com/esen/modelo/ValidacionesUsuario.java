@@ -1,5 +1,4 @@
 package com.esen.modelo;
-import com.esen.servicios.Tecnico;
 import com.esen.servicios.Usuario;
 import java.util.List;
 
