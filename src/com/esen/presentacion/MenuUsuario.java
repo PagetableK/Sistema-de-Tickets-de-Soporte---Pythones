@@ -9,6 +9,8 @@ public class MenuUsuario extends Menu {
     private Usuario usuarioLogueado;
 
     public boolean login() {
+        gestor_tickets.cargarDatos();
+        gestor_usuarios.cargarDatos();
         int intentos = 0;
         boolean V = false;
         while(!V) {

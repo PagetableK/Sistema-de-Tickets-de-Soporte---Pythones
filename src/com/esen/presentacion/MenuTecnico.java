@@ -19,6 +19,8 @@ public class MenuTecnico extends Menu {
     }
 
     public boolean login(){
+        gestor_tickets.cargarDatos();
+        gestor_tecnicos.cargarDatos();
         int intentos = 0;
         boolean V = false;
         while(intentos < 3 && !V) {
