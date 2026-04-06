@@ -3,6 +3,8 @@ import com.esen.servicios.Usuario;
 import com.esen.servicios.Tecnico;
 import com.esen.modelo.ValidacionesUsuario;
 import com.esen.modelo.ValidacionesTecnico;
+import com.esen.servicios.Ticket;
+import com.esen.servicios.TicketStatus;
 
 public class MenuAdmin extends Menu {
 
@@ -121,6 +123,32 @@ public class MenuAdmin extends Menu {
                 gestor_usuarios.guardarDatos(usuarios);
                 break;
             case "5":
+                // 1. Mostrar tickets que no tienen técnico asignado
+                System.out.println("== SELECCIONE UN TICKET EN ESPERA ==");
+                for (int i = 0; i < tickets.size(); i++) {
+                    if (tickets.get(i).getEstado() == TicketStatus.EN_ESPERA) {
+                        System.out.println(i + ". " + tickets.get(i).getDescripcion());
+                    }
+                }
+                System.out.print("Ingrese el índice del ticket: ");
+                int ticketIdx = Integer.parseInt(s.nextLine());
+
+                // 2. Mostrar técnicos disponibles
+                System.out.println("== SELECCIONE UN TÉCNICO ==");
+                for (int j = 0; j < tecnicos.size(); j++) {
+                    System.out.println(j + ". " + tecnicos.get(j).getNombre() + " (" + tecnicos.get(j).getEspecialidad() + ")");
+                }
+                System.out.print("Ingrese el índice del técnico: ");
+                int tecnicoIdx = Integer.parseInt(s.nextLine());
+
+                // 3. Realizar la asignación y cambiar estado
+                Ticket ticketSeleccionado = tickets.get(ticketIdx);
+                ticketSeleccionado.setEstado(TicketStatus.EN_PROCESO);
+
+                // Aquí se guardan los cambios en el archivo JSON
+                gestor_tickets.guardarDatos(tickets);
+
+                System.out.println("¡Ticket asignado exitosamente a " + tecnicos.get(tecnicoIdx).getNombre() + "!");
                 break;
             case "6":
                 break;
