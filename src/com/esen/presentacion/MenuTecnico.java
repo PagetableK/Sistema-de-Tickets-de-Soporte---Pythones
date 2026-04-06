@@ -17,14 +17,21 @@ public class MenuTecnico extends Menu {
     }
 
     public boolean login(){
-        System.out.println("\n--- ACCESO DE TÉCNICO ---");
-        System.out.println("Ingrese su correo:");
-        String correo = s.nextLine().trim();
-        //boolean Ve = validacionesTecnico.validarEmailIngreso(correo, tecnicos);
-        System.out.println("Ingrese su nombre:");
-        String nombre = s.nextLine().trim();
-        //boolean Vn = validacionesTecnico.validarNombreIngreso(nombre, tecnicos);
-        return true;
+        int intentos = 0;
+        boolean V = false;
+        while(intentos < 3 && !V) {
+            System.out.println("\n--- ACCESO DE TÉCNICO ---");
+            System.out.println("Ingrese su correo:");
+            String correo = s.nextLine().trim();
+            System.out.println("Ingrese su nombre:");
+            String nombre = s.nextLine().trim();
+            V = validacionesTecnico.validarIngreso(correo, nombre, tecnicos);
+            intentos += 1;
+        }
+        if(intentos == 3) {
+            System.out.println("Demasiados intentos fallidos.");
+        }
+        return V;
     }
 
 

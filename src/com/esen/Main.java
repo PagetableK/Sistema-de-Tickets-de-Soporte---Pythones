@@ -44,15 +44,21 @@ public class Main {
             switch (opcion) {
                 case "1":
                     usuario.login();
-                    if (usuario.login())
+                    if (usuario.login()) {
                         usuario.mostrar();
+                    }
                     else{
                         System.out.println("Regresando a menu principal");
                     }
                     break;
                 case "2":
                     tecnico.login();
-                    tecnico.mostrar();
+                    if(tecnico.login()) {
+                        tecnico.mostrar();
+                    }
+                    else{
+                        System.out.println("Regresando a menu principal");
+                    }
                     break;
                 case "3":
                     administrador.mostrar();
