@@ -1,7 +1,5 @@
 package com.esen.modelo;
 
-import com.esen.servicios.Usuario;
-
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,6 +14,6 @@ public abstract class Validaciones<T> {
         return matcher.matches();
     }
 
-    public abstract boolean validarEmail(String email, List<T> correos);
-    public abstract boolean validarNombre(String nombre, List<T> nombres);
+    public abstract boolean validarEmailRegistro(String email, List<T> correos);
+    public abstract boolean validarNombreRegistro(String nombre, List<T> nombres);
 }

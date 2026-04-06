@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ValidacionesUsuario extends Validaciones<Usuario>{
     @Override
-    public boolean validarEmail(String email, List<Usuario> usuarios){
+    public boolean validarEmailRegistro(String email, List<Usuario> usuarios){
         boolean correo_repetido = false;
 
         for (Usuario usuario : usuarios){
@@ -27,7 +27,7 @@ public class ValidacionesUsuario extends Validaciones<Usuario>{
     }
 
     @Override
-    public boolean validarNombre(String nombre_usuario, List<Usuario> usuarios){
+    public boolean validarNombreRegistro(String nombre_usuario, List<Usuario> usuarios){
         boolean nombre_repetido = false;
 
         for (Usuario usuario : usuarios){

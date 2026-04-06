@@ -23,9 +23,9 @@ public class MenuUsuario extends Menu {
         continuar = true;
         switch (opcion) {
             case "1":
-                /*tickets.add(new Ticket("X","Yes")); (prueba piloto)
+                //tickets.add(new Ticket("X","Yes")); (prueba piloto)
                 tickets.add(new Ticket("X","Yes"));
-                tickets.add(new Ticket("Y","No"));*/
+                tickets.add(new Ticket("Y","No"));
                 break;
             case "2":
                 break;

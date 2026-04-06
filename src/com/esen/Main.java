@@ -46,6 +46,7 @@ public class Main {
                     usuario.mostrar();
                     break;
                 case "2":
+                    tecnico.validacion();
                     tecnico.mostrar();
                     break;
                 case "3":
