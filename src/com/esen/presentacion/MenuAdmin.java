@@ -1,5 +1,8 @@
 package com.esen.presentacion;
 import com.esen.servicios.Usuario;
+import com.esen.servicios.Tecnico;
+import com.esen.modelo.ValidacionesUsuario;
+import com.esen.modelo.ValidacionesTecnico;
 
 public class MenuAdmin extends Menu {
 
@@ -31,8 +34,34 @@ public class MenuAdmin extends Menu {
                 s.nextLine();
                 break;
             case "2":
+                System.out.println("== LISTA DE TÉCNICOS ==");
+                for (Tecnico tecnico : tecnicos) {
+                    System.out.println("Nombre: " + tecnico.getNombre());
+                    System.out.println("Email: " + tecnico.getCorreo());
+                    System.out.println("Especialidad: " + tecnico.getEspecialidad());
+                    System.out.println("---");
+                }
+                System.out.println("Presione Enter para continuar");
+                s.nextLine();
                 break;
             case "3":
+                String nombre_tecnico, correo_tecnico, especialidad;
+                while (true) {
+                    System.out.print("Ingrese el nombre del técnico: ");
+                    nombre_tecnico = s.nextLine();
+                    if (validacionesTecnico.validarNombreRegistro(nombre_tecnico, tecnicos)) break;
+                }
+                while (true) {
+                    System.out.print("Ingrese el correo: ");
+                    correo_tecnico = s.nextLine();
+                    if (validacionesTecnico.validarEmailRegistro(correo_tecnico, tecnicos)) break;
+                }
+                System.out.print("Ingrese la especialidad: ");
+                especialidad = s.nextLine();
+                Tecnico nuevoTecnico = new Tecnico(nombre_tecnico, correo_tecnico, especialidad);
+                tecnicos.add(nuevoTecnico);
+                gestor_tecnicos.guardarDatos(tecnicos);
+                System.out.println("¡Técnico registrado con éxito!");
                 break;
             case "4":
                 String nombre_usuario;
