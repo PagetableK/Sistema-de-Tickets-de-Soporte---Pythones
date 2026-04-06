@@ -30,7 +30,7 @@ public class TicketStorage extends FileStorage<Ticket> {
 
         try {
             List<Ticket> tickets = mapper.readValue(archivo, new TypeReference<List<Ticket>>() {});
-            System.out.println("✅ Datos cargados correctamente.");
+            System.out.println("✅ Datos de tickets cargados correctamente.");
             return tickets;
         } catch (IOException e) {
             System.out.println("❌ Error cargando tickets: " + e.getMessage());
