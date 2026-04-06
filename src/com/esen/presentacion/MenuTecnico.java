@@ -10,7 +10,7 @@ public class MenuTecnico extends Menu {
 
     @Override
     protected void imprimirEncabezadoYOpciones() {
-        System.out.println("\n=== MENÚ TÉCNICO ===");
+        System.out.println("\n=== MENÚ TÉCNICO (" + tecnicoLogueado.getNombre() + ") ===");
         System.out.println("1. Ver tickets asignados");
         System.out.println("2. Cerrar ticket");
         System.out.println("3. Cerrar sesión");
@@ -54,4 +54,13 @@ public class MenuTecnico extends Menu {
                 break;
         }
     }
+
+    protected void VerTicketsAsignados(){
+
+    }
+
+    protected void CerrarTicket(){
+
+    }
+
 }
