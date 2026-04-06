@@ -8,24 +8,20 @@ public class MenuUsuario extends Menu {
 
     private Usuario usuarioLogueado;
 
+    @Override
     public boolean login() {
-        System.out.println("\n--- ACCESO DE USUARIO ---");
-        System.out.print("Ingrese su nombre: ");
-        String nombre = s.nextLine().trim();
-        System.out.print("Ingrese su correo: ");
-        String correo = s.nextLine().trim();
-
-        for (Usuario u : usuarios) {
-
-            if (u.getNombre().equalsIgnoreCase(nombre) && u.getCorreo().equalsIgnoreCase(correo)) {
-                this.usuarioLogueado = u;
-                System.out.println("✅ Acceso concedido. Bienvenido, " + u.getNombre());
-                return true;
-            }
+        int intentos = 0;
+        boolean V = false;
+        while(intentos < 3 && !V) {
+            System.out.println("\n--- ACCESO DE USUARIO ---");
+            System.out.print("Ingrese su correo: ");
+            String correo = s.nextLine().trim();
+            System.out.print("Ingrese su nombre: ");
+            String nombre = s.nextLine().trim();
+            V = validacionesUsuario.validarIngreso(correo, nombre, usuarios);
+            intentos += 1;
         }
-
-        System.out.println("❌ Error: Nombre o correo no encontrados.");
-        return false;
+        return V;
     }
 
     @Override

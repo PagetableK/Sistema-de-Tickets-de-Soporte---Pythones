@@ -31,4 +31,5 @@ public abstract class Menu {
 
     protected abstract void imprimirEncabezadoYOpciones();
     protected abstract void procesarOpcion(String opcion);
+    public abstract boolean login();
 }

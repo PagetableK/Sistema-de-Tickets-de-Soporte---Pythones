@@ -43,10 +43,11 @@ public class Main {
 
             switch (opcion) {
                 case "1":
+                    usuario.login();
                     usuario.mostrar();
                     break;
                 case "2":
-                    tecnico.validacion();
+                    tecnico.login();
                     tecnico.mostrar();
                     break;
                 case "3":

@@ -4,6 +4,8 @@ import java.util.List;
 
 
 public class ValidacionesUsuario extends Validaciones<Usuario>{
+    public Usuario usuarioLogueado;
+
     @Override
     public boolean validarEmailRegistro(String email, List<Usuario> usuarios){
         boolean correo_repetido = false;
@@ -26,10 +28,6 @@ public class ValidacionesUsuario extends Validaciones<Usuario>{
         return true;
     }
 
-    @Override
-    public boolean validarEmailIngreso(String email, List<Usuario> usuarios){
-        return true;
-    }
 
     @Override
     public boolean validarNombreRegistro(String nombre_usuario, List<Usuario> usuarios){
@@ -59,7 +57,15 @@ public class ValidacionesUsuario extends Validaciones<Usuario>{
     }
 
     @Override
-    public boolean validarNombreIngreso(String nombre_usuario, List<Usuario> usuarios){
-        return true;
+    public boolean validarIngreso(String correo, String nombre_usuario, List<Usuario> usuarios){
+        for (Usuario u : usuarios) {
+            if (u.getNombre().equalsIgnoreCase(nombre_usuario) && u.getCorreo().equalsIgnoreCase(correo)) {
+                this.usuarioLogueado = u;
+                System.out.println("✅ Acceso concedido. Bienvenido, " + u.getNombre());
+                return true;
+            }
+        }
+        System.out.println("❌ Error: Nombre o correo no encontrados.");
+        return false;
     }
 }

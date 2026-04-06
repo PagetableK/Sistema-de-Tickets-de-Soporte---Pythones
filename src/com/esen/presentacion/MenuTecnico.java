@@ -5,6 +5,9 @@ import com.esen.servicios.Tecnico;
 import java.util.List;
 
 public class MenuTecnico extends Menu {
+
+    private Tecnico tecnicoLogueado;
+
     @Override
     protected void imprimirEncabezadoYOpciones() {
         System.out.println("\n=== MENÚ TÉCNICO ===");
@@ -13,14 +16,16 @@ public class MenuTecnico extends Menu {
         System.out.println("3. Cerrar sesión");
     }
 
-    public void validacion(){
-        System.out.println("Ingrese sus credenciales de técnico:");
+    @Override
+    public boolean login(){
+        System.out.println("\n--- ACCESO DE TÉCNICO ---");
         System.out.println("Ingrese su correo:");
-        String email = s.nextLine().trim();
-        //validacionesTecnico.validarEmailIngreso(email, tecnicos);
+        String correo = s.nextLine().trim();
+        //boolean Ve = validacionesTecnico.validarEmailIngreso(correo, tecnicos);
         System.out.println("Ingrese su nombre:");
         String nombre = s.nextLine().trim();
-        //validacionesTecnico.validarNombreIngreso(nombre, tecnicos);
+        //boolean Vn = validacionesTecnico.validarNombreIngreso(nombre, tecnicos);
+        return true;
     }
 
 
