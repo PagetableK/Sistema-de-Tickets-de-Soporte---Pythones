@@ -1,6 +1,7 @@
 package com.esen.presentacion;
 
 import com.esen.servicios.Tecnico;
+import com.esen.servicios.Ticket;
 
 import java.util.List;
 
@@ -57,7 +58,17 @@ public class MenuTecnico extends Menu {
     }
 
     protected void VerTicketsAsignados(){
-
+        System.out.println("== LISTA DE TICKETS ASIGNADOS==");
+        for (Ticket ticket : tickets) {
+            if (tecnicoLogueado.equals(ticket.getTecnicoAsignado())) {
+                System.out.println("Descripción: " + ticket.getDescripcion());
+                System.out.println("Prioridad: " + ticket.getPrioridad());
+                System.out.println("Estado: " + ticket.getEstado());
+                System.out.println("---");
+            }
+        }
+        System.out.println("Presione Enter para continuar");
+        s.nextLine();
     }
 
     protected void CerrarTicket(){
