@@ -1,4 +1,6 @@
 package com.esen.presentacion;
+import com.esen.modelo.Validaciones;
+import com.esen.servicios.Ticket;
 import com.esen.servicios.Usuario;
 import com.esen.servicios.Tecnico;
 import com.esen.modelo.ValidacionesUsuario;
@@ -151,6 +153,17 @@ public class MenuAdmin extends Menu {
                 System.out.println("¡Ticket asignado exitosamente a " + tecnicos.get(tecnicoIdx).getNombre() + "!");
                 break;
             case "6":
+                System.out.println("== LISTA DE TICKETS ==");
+                for (Ticket ticket : tickets)
+                {
+                    System.out.println("Descripción: " + ticket.getDescripcion());
+                    System.out.println("Prioridad: " + ticket.getPrioridad());
+                    System.out.println("Estado: " + ticket.getEstado());
+                    System.out.println("Técnico asignado: " + ticket.getTecnicoAsignado());
+                    System.out.println("---");
+                }
+                System.out.println("Presione Enter para continuar");
+                s.nextLine();
                 break;
             case "7":
                 continuar = false;
