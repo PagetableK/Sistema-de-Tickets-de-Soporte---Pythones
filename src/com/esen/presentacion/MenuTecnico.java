@@ -16,7 +16,6 @@ public class MenuTecnico extends Menu {
         System.out.println("3. Cerrar sesión");
     }
 
-    @Override
     public boolean login(){
         System.out.println("\n--- ACCESO DE TÉCNICO ---");
         System.out.println("Ingrese su correo:");

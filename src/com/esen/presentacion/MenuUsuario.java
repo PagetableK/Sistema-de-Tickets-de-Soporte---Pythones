@@ -8,7 +8,6 @@ public class MenuUsuario extends Menu {
 
     private Usuario usuarioLogueado;
 
-    @Override
     public boolean login() {
         int intentos = 0;
         boolean V = false;
@@ -21,6 +20,8 @@ public class MenuUsuario extends Menu {
             V = validacionesUsuario.validarIngreso(correo, nombre, usuarios);
             intentos += 1;
         }
+        if(intentos == 3)
+            System.out.println("Demasiados intentos fallidos.");
         return V;
     }
 
