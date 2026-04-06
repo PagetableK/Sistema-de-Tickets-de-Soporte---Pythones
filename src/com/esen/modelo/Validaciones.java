@@ -17,5 +17,5 @@ public abstract class Validaciones<T> {
     }
 
     public abstract boolean validarEmail(String email, List<T> correos);
-    public abstract boolean validarNombre(String nombre, List<Usuario> usuarios);
+    public abstract boolean validarNombre(String nombre, List<T> nombres);
 }
