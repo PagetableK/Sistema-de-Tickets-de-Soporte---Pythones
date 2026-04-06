@@ -57,6 +57,7 @@ public class MenuTecnico extends Menu {
     }
 
     protected void VerTicketsAsignados(){
+
     }
 
     protected void CerrarTicket(){
