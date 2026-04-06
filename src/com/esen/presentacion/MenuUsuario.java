@@ -11,7 +11,7 @@ public class MenuUsuario extends Menu {
     public boolean login() {
         int intentos = 0;
         boolean V = false;
-        while(intentos < 3 && !V) {
+        while(!V) {
             System.out.println("\n--- ACCESO DE USUARIO ---");
             System.out.print("Ingrese su correo: ");
             String correo = s.nextLine().trim();
@@ -19,10 +19,11 @@ public class MenuUsuario extends Menu {
             String nombre = s.nextLine().trim();
             V = validacionesUsuario.validarIngreso(correo, nombre, usuarios);
             intentos += 1;
+            if(intentos == 3) {
+                System.out.println("Demasiados intentos fallidos.");
+                break;
         }
-        if(intentos == 3) {
-            System.out.println("Demasiados intentos fallidos.");
-        }
+
         return V;
     }
 

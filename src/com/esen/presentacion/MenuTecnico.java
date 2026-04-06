@@ -27,9 +27,10 @@ public class MenuTecnico extends Menu {
             String nombre = s.nextLine().trim();
             V = validacionesTecnico.validarIngreso(correo, nombre, tecnicos);
             intentos += 1;
-        }
-        if(intentos == 3) {
-            System.out.println("Demasiados intentos fallidos.");
+            if (intentos == 3) {
+                System.out.println("Demasiados intentos fallidos.");
+                break;
+            }
         }
         return V;
     }
@@ -56,7 +57,6 @@ public class MenuTecnico extends Menu {
     }
 
     protected void VerTicketsAsignados(){
-
     }
 
     protected void CerrarTicket(){
