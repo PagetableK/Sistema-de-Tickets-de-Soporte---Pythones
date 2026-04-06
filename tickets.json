@@ -1,1 +1,25 @@
-[ ]
+[ {
+  "descripcion" : "X",
+  "prioridad" : "Yes",
+  "estado" : "EN_ESPERA"
+}, {
+  "descripcion" : "Y",
+  "prioridad" : "No",
+  "estado" : "EN_ESPERA"
+}, {
+  "descripcion" : "X",
+  "prioridad" : "Yes",
+  "estado" : "EN_ESPERA"
+}, {
+  "descripcion" : "Y",
+  "prioridad" : "No",
+  "estado" : "EN_ESPERA"
+}, {
+  "descripcion" : "X",
+  "prioridad" : "Yes",
+  "estado" : "EN_ESPERA"
+}, {
+  "descripcion" : "Y",
+  "prioridad" : "No",
+  "estado" : "EN_ESPERA"
+} ]

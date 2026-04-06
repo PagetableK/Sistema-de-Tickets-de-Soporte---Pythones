@@ -1,5 +1,9 @@
 package com.esen.presentacion;
 
+import com.esen.servicios.Tecnico;
+
+import java.util.List;
+
 public class MenuTecnico extends Menu {
     @Override
     protected void imprimirEncabezadoYOpciones() {
@@ -9,8 +13,20 @@ public class MenuTecnico extends Menu {
         System.out.println("3. Cerrar sesión");
     }
 
+    public void validacion(){
+        System.out.println("Ingrese sus credenciales de técnico:");
+        System.out.println("Ingrese su correo:");
+        String email = s.nextLine().trim();
+        //validacionesTecnico.validarEmailIngreso(email, tecnicos);
+        System.out.println("Ingrese su nombre:");
+        String nombre = s.nextLine().trim();
+        //validacionesTecnico.validarNombreIngreso(nombre, tecnicos);
+    }
+
+
     @Override
     protected void procesarOpcion(String opcion) {
+        continuar = true;
         switch (opcion) {
             case "1":
                 break;
@@ -19,6 +35,7 @@ public class MenuTecnico extends Menu {
             case "3":
                 continuar = false;
                 System.out.println();
+                gestor_tickets.guardarDatos(tickets);
                 break;
             default:
                 System.out.println("Seleccione una opción válida (1, 2, o 3)\nPresione Enter para continuar");
