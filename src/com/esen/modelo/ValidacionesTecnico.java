@@ -8,7 +8,7 @@ public class ValidacionesTecnico extends Validaciones<Tecnico>{
         boolean correo_repetido = false;
 
         for (Tecnico tecnico : tecnicos){
-            if(tecnico.getNombre().equals(email)){
+            if(tecnico.getCorreo().equals(email)){
                 correo_repetido = true;
             }
         }
@@ -32,19 +32,7 @@ public class ValidacionesTecnico extends Validaciones<Tecnico>{
 
     @Override
     public boolean validarNombreRegistro(String nombre_tecnico, List<Tecnico> tecnicos){
-        boolean nombre_repetido = false;
-
-        for (Tecnico tecnico : tecnicos){
-            if(tecnico.getNombre().equals(nombre_tecnico)){
-                nombre_repetido = true;
-            }
-        }
-
-        if (nombre_repetido == true){
-            System.out.println("El nombre de técnico ya está siendo utilizado");
-            return false;
-        }
-        else if (nombre_tecnico.isEmpty()){
+        if (nombre_tecnico.isEmpty()){
             System.out.println("Asegúrese de ingresar el nombre del usuario");
             return false;
         }

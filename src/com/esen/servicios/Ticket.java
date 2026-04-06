@@ -6,7 +6,6 @@ public class Ticket {
     private TicketStatus estado;
     private String tecnicoAsignado;
 
-    public Ticket () {}
 
     public Ticket(){}
 
