@@ -1,8 +1,10 @@
 package com.esen.presentacion;
-import com.esen.modelo.Validaciones;
+import com.esen.modelo.ValidacionesUsuario;
 import com.esen.servicios.Usuario;
 
 public class MenuAdmin extends Menu {
+    ValidacionesUsuario validacionesUsuario = new ValidacionesUsuario();
+
 
     @Override
     protected void imprimirEncabezadoYOpciones() {
@@ -46,7 +48,7 @@ public class MenuAdmin extends Menu {
                     System.out.println("Ingrese el nombre del usuario:");
                     String nombre = s.nextLine();
 
-                    if(Validaciones.validarNombreUsuario(nombre, usuarios)){
+                    if(validacionesUsuario.validarNombre(nombre, usuarios)){
                         nombre_usuario = nombre;
                         break;
                     }
@@ -57,7 +59,7 @@ public class MenuAdmin extends Menu {
                     System.out.println("Ingrese el correo:");
                     String correo = s.nextLine();
 
-                    if(Validaciones.validarEmailUsuario(correo, usuarios))
+                    if(validacionesUsuario.validarEmail(correo, usuarios))
                     {
                         correo_usuario = correo;
                         break;

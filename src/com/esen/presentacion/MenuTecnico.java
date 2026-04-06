@@ -9,6 +9,16 @@ public class MenuTecnico extends Menu {
         System.out.println("3. Cerrar sesión");
     }
 
+    protected void validacion(){
+        System.out.println("Ingrese sus credenciales de técnico:");
+        System.out.println("Ingrese su correo:");
+        String email = s.nextLine().trim();
+
+        System.out.println("Ingrese su nombre:");
+        String nombre = s.nextLine().trim();
+    }
+
+
     @Override
     protected void procesarOpcion(String opcion) {
         continuar = true;
@@ -20,6 +30,7 @@ public class MenuTecnico extends Menu {
             case "3":
                 continuar = false;
                 System.out.println();
+                gestor_tickets.guardarDatos(tickets);
                 break;
             default:
                 System.out.println("Seleccione una opción válida (1, 2, o 3)\nPresione Enter para continuar");
