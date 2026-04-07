@@ -45,8 +45,7 @@ public class Main {
                 case "1":
                     if (usuario.login()) {
                         usuario.mostrar();
-                    }
-                    else{
+                    } else {
                         System.out.println("Regresando a menu principal");
                     }
                     break;
