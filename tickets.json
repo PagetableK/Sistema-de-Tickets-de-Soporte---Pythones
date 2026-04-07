@@ -1,1 +1,21 @@
-[ ]
+[ {
+  "descripcion" : "donby",
+  "prioridad" : "media",
+  "estado" : "Cerrado",
+  "tecnicoAsignado" : "crow"
+}, {
+  "descripcion" : "morales",
+  "prioridad" : "alta",
+  "estado" : "En espera",
+  "tecnicoAsignado" : null
+}, {
+  "descripcion" : "x",
+  "prioridad" : "f",
+  "estado" : "Cerrado",
+  "tecnicoAsignado" : "jaja"
+}, {
+  "descripcion" : "problema",
+  "prioridad" : "alta",
+  "estado" : "En proceso",
+  "tecnicoAsignado" : "jaja"
+} ]

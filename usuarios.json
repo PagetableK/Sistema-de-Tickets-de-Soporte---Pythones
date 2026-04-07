@@ -1,1 +1,16 @@
-[ ]
+[ {
+  "nombre" : "salir",
+  "correo" : "aj@a.com",
+  "area" : "aaa",
+  "rol" : "sa"
+}, {
+  "nombre" : "hola",
+  "correo" : "hola@gmail.com",
+  "area" : "jijija",
+  "rol" : "l"
+}, {
+  "nombre" : "pablo",
+  "correo" : "pab@gmail.com",
+  "area" : "ja",
+  "rol" : "sdf"
+} ]

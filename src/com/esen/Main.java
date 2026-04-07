@@ -22,7 +22,7 @@ public class Main {
         MenuUsuario usuario = new MenuUsuario();
         MenuTecnico tecnico = new MenuTecnico();
         MenuAdmin administrador = new MenuAdmin();
-        UserStorage gestor_usuarios = new UserStorage(); //examinar si no es necesario que este presente en main
+        UserStorage gestor_usuarios = new UserStorage();
         TechnicianStorage gestor_tecnicos = new TechnicianStorage();
         TicketStorage gestor_tickets = new TicketStorage();
         System.out.println("••••INICIANDO SISTEMA••••");

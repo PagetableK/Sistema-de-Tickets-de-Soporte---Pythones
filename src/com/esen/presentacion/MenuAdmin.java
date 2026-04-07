@@ -3,10 +3,10 @@ import com.esen.modelo.Validaciones;
 import com.esen.servicios.Ticket;
 import com.esen.servicios.Usuario;
 import com.esen.servicios.Tecnico;
+import com.esen.servicios.TicketStatus;
 import com.esen.modelo.ValidacionesUsuario;
 import com.esen.modelo.ValidacionesTecnico;
-import com.esen.servicios.Ticket;
-import com.esen.servicios.TicketStatus;
+
 
 public class MenuAdmin extends Menu {
 

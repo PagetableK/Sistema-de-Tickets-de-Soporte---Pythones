@@ -1,1 +1,9 @@
-[ ]
+[ {
+  "nombre" : "jaja",
+  "correo" : "salir@a.com",
+  "especialidad" : "asja"
+}, {
+  "nombre" : "crow",
+  "correo" : "crow@cakaw.com",
+  "especialidad" : "asesino"
+} ]
