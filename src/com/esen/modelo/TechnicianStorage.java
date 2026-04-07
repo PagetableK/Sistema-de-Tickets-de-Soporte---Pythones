@@ -15,7 +15,7 @@ public class TechnicianStorage extends FileStorage<Tecnico>{
         try {
             File archivo = new File(RUTA_ARCHIVO);
             mapper.writeValue(archivo, listaTecnicos);
-            System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
+//            System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
         } catch (IOException e) {
             System.out.println("❌ Error al guardar los datos: " + e.getMessage());
         }
@@ -29,7 +29,7 @@ public class TechnicianStorage extends FileStorage<Tecnico>{
 
         try {
             List<Tecnico> tecnicos = mapper.readValue(archivo, new TypeReference<List<Tecnico>>() {});
-            System.out.println("✅ Datos cargados correctamente.");
+//            System.out.println("✅ Datos cargados correctamente.");
             return tecnicos;
         } catch (IOException e) {
             System.out.println("❌ Error cargando técnicos: " + e.getMessage());

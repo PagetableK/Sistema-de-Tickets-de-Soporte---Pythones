@@ -16,7 +16,7 @@ public class TicketStorage extends FileStorage<Ticket> {
             File archivo = new File(RUTA_ARCHIVO);
 
             mapper.writeValue(archivo, listaTickets);
-            System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
+//            System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
         } catch (IOException e) {
             System.out.println("❌ Error al guardar los datos: " + e.getMessage());
         }
@@ -30,7 +30,7 @@ public class TicketStorage extends FileStorage<Ticket> {
 
         try {
             List<Ticket> tickets = mapper.readValue(archivo, new TypeReference<List<Ticket>>() {});
-            System.out.println("✅ Datos cargados correctamente.");
+//            System.out.println("✅ Datos cargados correctamente.");
             return tickets;
         } catch (IOException e) {
             System.out.println("❌ Error cargando tickets: " + e.getMessage());

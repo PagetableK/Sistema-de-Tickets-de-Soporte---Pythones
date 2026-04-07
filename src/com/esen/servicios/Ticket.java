@@ -34,4 +34,5 @@ public class Ticket {
         this.estado = estado;
     }
     public String getTecnicoAsignado() { return tecnicoAsignado; }
+    public void setTecnicoAsignado(String tecnicoAsignado) { this.tecnicoAsignado = tecnicoAsignado; } // ✅ agregar
 }

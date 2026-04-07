@@ -60,7 +60,7 @@ public class ValidacionesUsuario extends Validaciones<Usuario>{
     public boolean validarIngreso(String correo, String nombre_usuario, List<Usuario> usuarios){
         for (Usuario u : usuarios) {
             if (u.getNombre().equalsIgnoreCase(nombre_usuario) && u.getCorreo().equalsIgnoreCase(correo)) {
-                this.usuarioLogueado = u;
+                usuarioLogueado = u;
                 System.out.println("✅ Acceso concedido. Bienvenido, " + u.getNombre());
                 return true;
             }

@@ -16,7 +16,7 @@ public class UserStorage extends FileStorage<Usuario> {
         try {
             File archivo = new File(RUTA_ARCHIVO);
             mapper.writeValue(archivo, listaUsuarios);
-            System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
+//            System.out.println("✅ Datos guardados correctamente en: " + archivo.getAbsolutePath());
         } catch (IOException e) {
             System.out.println("❌ Error al guardar los datos: " + e.getMessage());
         }
@@ -30,7 +30,7 @@ public class UserStorage extends FileStorage<Usuario> {
 
         try {
             List<Usuario> usuarios = mapper.readValue(archivo, new TypeReference<List<Usuario>>() {});
-            System.out.println("✅ Datos cargados correctamente.");
+//            System.out.println("✅ Datos cargados correctamente.");
             return usuarios;
         } catch (IOException e) {
             System.out.println("❌ Error cargando usuarios: " + e.getMessage());

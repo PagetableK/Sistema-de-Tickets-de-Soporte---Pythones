@@ -24,6 +24,9 @@ public class MenuAdmin extends Menu {
 
     @Override
     protected void procesarOpcion(String opcion) {
+        usuarios = gestor_usuarios.cargarDatos();
+        tecnicos = gestor_tecnicos.cargarDatos();
+        tickets = gestor_tickets.cargarDatos();
         continuar = true;
         switch (opcion) {
             case "1":
@@ -125,32 +128,41 @@ public class MenuAdmin extends Menu {
                 gestor_usuarios.guardarDatos(usuarios);
                 break;
             case "5":
-                // 1. Mostrar tickets que no tienen técnico asignado
-                System.out.println("== SELECCIONE UN TICKET EN ESPERA ==");
+                int cntEnEspera = 0;
                 for (int i = 0; i < tickets.size(); i++) {
                     if (tickets.get(i).getEstado() == TicketStatus.EN_ESPERA) {
                         System.out.println(i + ". " + tickets.get(i).getDescripcion());
+                        cntEnEspera++;
                     }
                 }
-                System.out.print("Ingrese el índice del ticket: ");
-                int ticketIdx = Integer.parseInt(s.nextLine());
-
-                // 2. Mostrar técnicos disponibles
-                System.out.println("== SELECCIONE UN TÉCNICO ==");
-                for (int j = 0; j < tecnicos.size(); j++) {
-                    System.out.println(j + ". " + tecnicos.get(j).getNombre() + " (" + tecnicos.get(j).getEspecialidad() + ")");
+                if (cntEnEspera == 0){
+                    System.out.println("No hay tickets con estado 'En espera'");
                 }
-                System.out.print("Ingrese el índice del técnico: ");
-                int tecnicoIdx = Integer.parseInt(s.nextLine());
+                else if (tecnicos.size() == 0){
+                    System.out.println("Todavía no se han registrado técnicos");
+                }
+                else {
+                    System.out.println("== SELECCIONE UN TICKET EN ESPERA ==");
+                    System.out.print("Ingrese el índice del ticket: ");
+                    int ticketIdx = Integer.parseInt(s.nextLine());
 
-                // 3. Realizar la asignación y cambiar estado
-                Ticket ticketSeleccionado = tickets.get(ticketIdx);
-                ticketSeleccionado.setEstado(TicketStatus.EN_PROCESO);
+                    // 2. Mostrar técnicos disponibles
+                    System.out.println("== SELECCIONE UN TÉCNICO ==");
+                    for (int j = 0; j < tecnicos.size(); j++) {
+                        System.out.println(j + ". " + tecnicos.get(j).getNombre() + " (" + tecnicos.get(j).getEspecialidad() + ")");
+                    }
+                    System.out.print("Ingrese el índice del técnico: ");
+                    int tecnicoIdx = Integer.parseInt(s.nextLine());
 
-                // Aquí se guardan los cambios en el archivo JSON
-                gestor_tickets.guardarDatos(tickets);
+                    // 3. Realizar la asignación y cambiar estado
+                    Ticket ticketSeleccionado = tickets.get(ticketIdx);
+                    ticketSeleccionado.setEstado(TicketStatus.EN_PROCESO);
+                    ticketSeleccionado.setTecnicoAsignado(tecnicos.get(tecnicoIdx).getNombre());
+                    // Aquí se guardan los cambios en el archivo JSON
+                    gestor_tickets.guardarDatos(tickets);
 
-                System.out.println("¡Ticket asignado exitosamente a " + tecnicos.get(tecnicoIdx).getNombre() + "!");
+                    System.out.println("¡Ticket asignado exitosamente a " + tecnicos.get(tecnicoIdx).getNombre() + "!");
+                }
                 break;
             case "6":
                 System.out.println("== LISTA DE TICKETS ==");
@@ -159,7 +171,13 @@ public class MenuAdmin extends Menu {
                     System.out.println("Descripción: " + ticket.getDescripcion());
                     System.out.println("Prioridad: " + ticket.getPrioridad());
                     System.out.println("Estado: " + ticket.getEstado());
-                    System.out.println("Técnico asignado: " + ticket.getTecnicoAsignado());
+                    if (ticket.getTecnicoAsignado() == null)
+                    {
+                        System.out.println("Técnico: Sin asignar");
+                    }
+                    else{
+                        System.out.println("Técnico asignado: " + ticket.getTecnicoAsignado());
+                    }
                     System.out.println("---");
                 }
                 System.out.println("Presione Enter para continuar");

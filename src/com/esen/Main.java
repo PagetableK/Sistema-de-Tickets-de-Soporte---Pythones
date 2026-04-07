@@ -43,7 +43,6 @@ public class Main {
 
             switch (opcion) {
                 case "1":
-                    usuario.login();
                     if (usuario.login()) {
                         usuario.mostrar();
                     }
@@ -52,7 +51,6 @@ public class Main {
                     }
                     break;
                 case "2":
-                    tecnico.login();
                     if(tecnico.login()) {
                         tecnico.mostrar();
                     }

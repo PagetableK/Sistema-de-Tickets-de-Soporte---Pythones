@@ -9,20 +9,30 @@ public class MenuUsuario extends Menu {
     private Usuario usuarioLogueado;
 
     public boolean login() {
+        usuarios = gestor_usuarios.cargarDatos();
         int intentos = 0;
         boolean V = false;
         while(intentos < 3 && !V) {
             System.out.println("\n--- ACCESO DE USUARIO ---");
-            System.out.print("Ingrese su correo: ");
+            System.out.print("Ingrese su correo (o escriba Salir para volver): ");
             String correo = s.nextLine().trim();
+            if (correo.toLowerCase().trim().equals("salir")) {
+                break;
+            }
             System.out.print("Ingrese su nombre: ");
             String nombre = s.nextLine().trim();
+            if (nombre.toLowerCase().trim().equals("salir")) {
+                break;
+            }
             V = validacionesUsuario.validarIngreso(correo, nombre, usuarios);
             intentos += 1;
         }
         if(intentos == 3) {
             System.out.println("Demasiados intentos fallidos.");
         }
+
+        usuarioLogueado = validacionesUsuario.usuarioLogueado;
+
         return V;
     }
 
@@ -36,6 +46,9 @@ public class MenuUsuario extends Menu {
 
     @Override
     protected void procesarOpcion(String opcion) {
+        usuarios = gestor_usuarios.cargarDatos();
+        tecnicos = gestor_tecnicos.cargarDatos();
+        tickets = gestor_tickets.cargarDatos();
         continuar = true;
         switch (opcion) {
             case "1":
@@ -67,7 +80,8 @@ public class MenuUsuario extends Menu {
 
         Ticket nuevo = new Ticket(desc, prio);
         tickets.add(nuevo);
-
+        System.out.println("DEBUG: guardando " + tickets.size() + " tickets");
+        gestor_tickets.guardarDatos(tickets);
         System.out.println("✅ Ticket registrado exitosamente (Estado: " + nuevo.getEstado() + ")");
     }
 
