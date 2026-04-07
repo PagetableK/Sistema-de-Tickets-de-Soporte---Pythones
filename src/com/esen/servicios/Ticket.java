@@ -4,6 +4,8 @@ public class Ticket {
     private String descripcion;
     private String prioridad;
     private TicketStatus estado;
+    private String tecnicoAsignado;
+
 
     public Ticket(){}
 
@@ -31,4 +33,5 @@ public class Ticket {
     public void setEstado(TicketStatus estado) {
         this.estado = estado;
     }
+    public String getTecnicoAsignado() { return tecnicoAsignado; }
 }

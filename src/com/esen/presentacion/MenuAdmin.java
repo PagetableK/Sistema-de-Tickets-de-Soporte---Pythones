@@ -1,5 +1,12 @@
 package com.esen.presentacion;
+import com.esen.modelo.Validaciones;
+import com.esen.servicios.Ticket;
 import com.esen.servicios.Usuario;
+import com.esen.servicios.Tecnico;
+import com.esen.modelo.ValidacionesUsuario;
+import com.esen.modelo.ValidacionesTecnico;
+import com.esen.servicios.Ticket;
+import com.esen.servicios.TicketStatus;
 
 public class MenuAdmin extends Menu {
 
@@ -31,8 +38,34 @@ public class MenuAdmin extends Menu {
                 s.nextLine();
                 break;
             case "2":
+                System.out.println("== LISTA DE TÉCNICOS ==");
+                for (Tecnico tecnico : tecnicos) {
+                    System.out.println("Nombre: " + tecnico.getNombre());
+                    System.out.println("Email: " + tecnico.getCorreo());
+                    System.out.println("Especialidad: " + tecnico.getEspecialidad());
+                    System.out.println("---");
+                }
+                System.out.println("Presione Enter para continuar");
+                s.nextLine();
                 break;
             case "3":
+                String nombre_tecnico, correo_tecnico, especialidad;
+                while (true) {
+                    System.out.print("Ingrese el nombre del técnico: ");
+                    nombre_tecnico = s.nextLine();
+                    if (validacionesTecnico.validarNombreRegistro(nombre_tecnico, tecnicos)) break;
+                }
+                while (true) {
+                    System.out.print("Ingrese el correo: ");
+                    correo_tecnico = s.nextLine();
+                    if (validacionesTecnico.validarEmailRegistro(correo_tecnico, tecnicos)) break;
+                }
+                System.out.print("Ingrese la especialidad: ");
+                especialidad = s.nextLine();
+                Tecnico nuevoTecnico = new Tecnico(nombre_tecnico, correo_tecnico, especialidad);
+                tecnicos.add(nuevoTecnico);
+                gestor_tecnicos.guardarDatos(tecnicos);
+                System.out.println("¡Técnico registrado con éxito!");
                 break;
             case "4":
                 String nombre_usuario;
@@ -92,8 +125,45 @@ public class MenuAdmin extends Menu {
                 gestor_usuarios.guardarDatos(usuarios);
                 break;
             case "5":
+                // 1. Mostrar tickets que no tienen técnico asignado
+                System.out.println("== SELECCIONE UN TICKET EN ESPERA ==");
+                for (int i = 0; i < tickets.size(); i++) {
+                    if (tickets.get(i).getEstado() == TicketStatus.EN_ESPERA) {
+                        System.out.println(i + ". " + tickets.get(i).getDescripcion());
+                    }
+                }
+                System.out.print("Ingrese el índice del ticket: ");
+                int ticketIdx = Integer.parseInt(s.nextLine());
+
+                // 2. Mostrar técnicos disponibles
+                System.out.println("== SELECCIONE UN TÉCNICO ==");
+                for (int j = 0; j < tecnicos.size(); j++) {
+                    System.out.println(j + ". " + tecnicos.get(j).getNombre() + " (" + tecnicos.get(j).getEspecialidad() + ")");
+                }
+                System.out.print("Ingrese el índice del técnico: ");
+                int tecnicoIdx = Integer.parseInt(s.nextLine());
+
+                // 3. Realizar la asignación y cambiar estado
+                Ticket ticketSeleccionado = tickets.get(ticketIdx);
+                ticketSeleccionado.setEstado(TicketStatus.EN_PROCESO);
+
+                // Aquí se guardan los cambios en el archivo JSON
+                gestor_tickets.guardarDatos(tickets);
+
+                System.out.println("¡Ticket asignado exitosamente a " + tecnicos.get(tecnicoIdx).getNombre() + "!");
                 break;
             case "6":
+                System.out.println("== LISTA DE TICKETS ==");
+                for (Ticket ticket : tickets)
+                {
+                    System.out.println("Descripción: " + ticket.getDescripcion());
+                    System.out.println("Prioridad: " + ticket.getPrioridad());
+                    System.out.println("Estado: " + ticket.getEstado());
+                    System.out.println("Técnico asignado: " + ticket.getTecnicoAsignado());
+                    System.out.println("---");
+                }
+                System.out.println("Presione Enter para continuar");
+                s.nextLine();
                 break;
             case "7":
                 continuar = false;

@@ -30,7 +30,7 @@ public class UserStorage extends FileStorage<Usuario> {
 
         try {
             List<Usuario> usuarios = mapper.readValue(archivo, new TypeReference<List<Usuario>>() {});
-            System.out.println("✅ Datos cargados correctamente.");
+            System.out.println("✅ Datos de usuarios cargados correctamente.");
             return usuarios;
         } catch (IOException e) {
             System.out.println("❌ Error cargando usuarios: " + e.getMessage());

@@ -29,7 +29,7 @@ public class TechnicianStorage extends FileStorage<Tecnico>{
 
         try {
             List<Tecnico> tecnicos = mapper.readValue(archivo, new TypeReference<List<Tecnico>>() {});
-            System.out.println("✅ Datos cargados correctamente.");
+            System.out.println("✅ Datos de técnicos cargados correctamente.");
             return tecnicos;
         } catch (IOException e) {
             System.out.println("❌ Error cargando técnicos: " + e.getMessage());
