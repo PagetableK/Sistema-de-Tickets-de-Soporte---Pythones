@@ -18,4 +18,24 @@
   "prioridad" : "alta",
   "estado" : "En proceso",
   "tecnicoAsignado" : "jaja"
+}, {
+  "descripcion" : "Salir",
+  "prioridad" : "BAJA",
+  "estado" : "En espera",
+  "tecnicoAsignado" : null
+}, {
+  "descripcion" : "hola",
+  "prioridad" : "MEDIA",
+  "estado" : "En espera",
+  "tecnicoAsignado" : null
+}, {
+  "descripcion" : "alta",
+  "prioridad" : "ALTA",
+  "estado" : "En espera",
+  "tecnicoAsignado" : null
+}, {
+  "descripcion" : "ahh",
+  "prioridad" : "MEDIA",
+  "estado" : "En espera",
+  "tecnicoAsignado" : null
 } ]

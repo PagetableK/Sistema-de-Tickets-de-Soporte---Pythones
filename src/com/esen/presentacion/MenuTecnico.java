@@ -31,9 +31,6 @@ public class MenuTecnico extends Menu {
             }
             System.out.println("Ingrese su nombre:");
             String nombre = s.nextLine().trim();
-            if (nombre.toLowerCase().trim().equals("salir")) {
-                break;
-            }
             V = validacionesTecnico.validarIngreso(correo, nombre, tecnicos);
             intentos += 1;
         }

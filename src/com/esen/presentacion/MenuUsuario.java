@@ -2,6 +2,8 @@ package com.esen.presentacion;
 
 import com.esen.servicios.Ticket;
 import com.esen.servicios.Usuario;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class MenuUsuario extends Menu {
@@ -21,9 +23,6 @@ public class MenuUsuario extends Menu {
             }
             System.out.print("Ingrese su nombre: ");
             String nombre = s.nextLine().trim();
-            if (nombre.toLowerCase().trim().equals("salir")) {
-                break;
-            }
             V = validacionesUsuario.validarIngreso(correo, nombre, usuarios);
             intentos += 1;
         }
@@ -70,19 +69,28 @@ public class MenuUsuario extends Menu {
 
 
     private void crearNuevoTicket() {
+        List<String> prioridades = Arrays.asList("ALTA", "MEDIA", "BAJA");
+
         System.out.println("\n--- NUEVO TICKET ---");
         System.out.print("Descripción del problema: ");
         String desc = s.nextLine();
 
-        System.out.print("Prioridad (Alta/Media/Baja): ");
-        String prio = s.nextLine();
-
-
-        Ticket nuevo = new Ticket(desc, prio);
-        tickets.add(nuevo);
-        System.out.println("DEBUG: guardando " + tickets.size() + " tickets");
-        gestor_tickets.guardarDatos(tickets);
-        System.out.println("✅ Ticket registrado exitosamente (Estado: " + nuevo.getEstado() + ")");
+        while (true) {
+            System.out.print("Prioridad (Alta/Media/Baja): ");
+            String prioridad = s.nextLine();
+            prioridad = prioridad.toUpperCase().trim();
+            if (prioridades.contains(prioridad)) {
+                Ticket nuevo = new Ticket(desc, prioridad);
+                tickets.add(nuevo);
+                System.out.println("DEBUG: guardando " + tickets.size() + " tickets");
+                gestor_tickets.guardarDatos(tickets);
+                System.out.println("✅ Ticket registrado exitosamente (Estado: " + nuevo.getEstado() + ")");
+                break;
+            }
+            else{
+                System.out.println("La prioridad ingresada no es válida. \nIngrese una prioridad válida para continuar.");
+            }
+        }
     }
 
 
