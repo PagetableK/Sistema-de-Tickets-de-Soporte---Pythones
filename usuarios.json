@@ -1,16 +1,11 @@
 [ {
-  "nombre" : "salir",
-  "correo" : "aj@a.com",
-  "area" : "aaa",
-  "rol" : "sa"
-}, {
   "nombre" : "hola",
   "correo" : "hola@gmail.com",
-  "area" : "jijija",
-  "rol" : "l"
+  "area" : "saludo",
+  "rol" : "saludar"
 }, {
   "nombre" : "pablo",
   "correo" : "pab@gmail.com",
-  "area" : "ja",
-  "rol" : "sdf"
+  "area" : "IT",
+  "rol" : "Ingeniero"
 } ]
